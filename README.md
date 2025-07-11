@@ -38,3 +38,8 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 npm install
 npm run dev
+
+app folder k andr page ko run krna
+
+
+for navigation linking tag instead of using <a>
