@@ -1,6 +1,3 @@
-import ProductList from '../components/ProductList';
-
-export default function ProductsPage() {
   const products = [
     {
        id: 1,
@@ -76,10 +73,17 @@ export default function ProductsPage() {
     },
   ];
 
+export default function ProductDetail({ params }) {
+  const productId = parseInt(params.id);
+  const product = products.find(p => p.id === productId);
+
+  if (!product) return <div className="p-6">Product not found.</div>;
+
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Our Products</h1>
-      <ProductList products={products} />
+      <h1 className="text-2xl font-bold mb-4">{product.name}</h1>
+      <img src={product.image} alt={product.name} className="w-96 mb-4 rounded" />
+      <p className="text-green-600 font-bold text-xl">${product.price}</p>
     </div>
   );
 }
