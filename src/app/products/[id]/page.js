@@ -73,8 +73,9 @@
     },
   ];
 
-export default function ProductDetail({ params }) {
-  const productId = parseInt(params.id);
+export default async function ProductDetail({ params }) {
+    const { id } = await params;
+  const productId = parseInt(id);
   const product = products.find(p => p.id === productId);
 
   if (!product) return <div className="p-6">Product not found.</div>;

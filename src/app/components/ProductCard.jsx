@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export default function ProductCard({ product }) {
   return (
-    <Link href={`/product/${product.id}`}>
+    <Link href={`/products/${product.id}`}>
       <div className="cursor-pointer border p-4 rounded shadow-md w-64 bg-white hover:shadow-lg transition">
         <img
           src={product.image}

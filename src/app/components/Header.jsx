@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="/" className="hover:underline">Home</Link>
           <Link href="/about" className="hover:underline">About</Link>
           <Link href="/contact" className="hover:underline">Contact</Link>
-          <Link href="/product" className="hover:underline">Product</Link>
+          <Link href="/products" className="hover:underline">Product</Link>
         </nav>
       </div>
     </header>
