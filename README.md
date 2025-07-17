@@ -43,3 +43,18 @@ app folder k andr page ko run krna
 
 
 for navigation linking tag instead of using <a>
+
+//today 17-JUl
+api fetch()
+dynamic routing 
+react hook
+Yup for validation
+yup resolver
+form name email message with validaiont uusing react hook and yup
+
+promise
+
+
+npm install react-hook-form yup @hookform/resolvers
+usestate
+useeffext
