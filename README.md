@@ -57,4 +57,13 @@ promise
 
 npm install react-hook-form yup @hookform/resolvers
 usestate
-useeffext
+useeffect
+
+
+api
+http method
+mongoes lib 
+vercel.com //hosting
+a model fofr feedback atlas
+api get post
+front end form create
