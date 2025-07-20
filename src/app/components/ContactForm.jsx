@@ -25,16 +25,32 @@ export default function ContactForm() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-    console.log("Form submitted:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+const onSubmit = async (data) => {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json(); // parse JSON always, even on error
+
+    if (!res.ok) {
+      console.error("Backend Response Error:", result.error || result);
+      throw new Error(result.error || "Failed to submit");
+    }
+
+    console.log("Success:", result);
     setShowPopup(true);
     reset();
 
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
-  };
+    setTimeout(() => setShowPopup(false), 3000);
+  } catch (error) {
+    console.error("❌ Submit Error:", error.message);
+    alert("Submit failed: " + error.message);
+  }
+};
+
 
   return (
     <div className="relative max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md">

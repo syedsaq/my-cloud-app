@@ -13,7 +13,8 @@ export default function Header() {
           <Link href="/contact" className="hover:underline">Contact</Link>
           <Link href="/products" className="hover:underline">Product</Link>
           <Link href="/posts" className="hover:underline">Post</Link>
-           <Link href="/contactus" className="hover:underline">Contact Us</Link>
+          <Link href="/contactus" className="hover:underline">Contact Us</Link>
+          <Link href="/feedback" className="hover:underline">Feedback</Link>
         </nav>
       </div>
     </header>

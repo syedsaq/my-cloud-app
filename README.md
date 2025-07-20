@@ -58,7 +58,8 @@ promise
 npm install react-hook-form yup @hookform/resolvers
 usestate
 useeffect
-
+syedsaqlain46
+kahani3777
 
 api
 http method
@@ -67,3 +68,22 @@ vercel.com //hosting
 a model fofr feedback atlas
 api get post
 front end form create
+src/
+├── app/
+│   ├── api/
+│   │   └── contact/
+│   │       └── route.js       // ⬅ API Routes (POST and GET)
+│   ├── contactus/
+│   │   └── page.js            // ⬅ Page Route
+│   ├── components/
+│   │   └── ContactForm.jsx    // ⬅ Your form component
+│   │   └── Popup.jsx
+├── lib/
+│   └── dbConnect.js           // ⬅ MongoDB Connection Utility
+├── models/
+│   └── Contact.js             // ⬅ Mongoose Schema
+
+mongodb+srv://syedsaqlain46:<db_password>@cluster0.fhldezx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+npm install mongodb
+New-Item -Path .env.local -ItemType File //for create env in root
+npm install mongoose
