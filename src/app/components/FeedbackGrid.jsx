@@ -5,23 +5,32 @@ import { useEffect, useState } from "react";
 const FeedbackGrid = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState(""); // 🔑 debounced
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-
   const [page, setPage] = useState(1);
   const perPage = 6;
 
-  // ✅ Re-fetch when page or search changes
+  // ⏱️ Debounce effect
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300); // wait 300ms after last keystroke
+
+    return () => clearTimeout(handler);
+  }, [search]);
+
+  // ✅ Fetch when debounced search or page changes
   useEffect(() => {
     fetchFeedback();
-  }, [page, search]);
+  }, [page, debouncedSearch]);
 
   const fetchFeedback = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/contact?page=${page}&limit=${perPage}&search=${encodeURIComponent(search)}`);
+      const res = await fetch(`/api/contact?page=${page}&limit=${perPage}&search=${encodeURIComponent(debouncedSearch)}`);
       const data = await res.json();
       setFeedbacks(data.feedbacks);
       setTotalPages(data.totalPages);
@@ -103,10 +112,7 @@ const FeedbackGrid = () => {
                     <button className="bg-green-500 text-white px-2 py-1 rounded" onClick={handleUpdate}>
                       Save
                     </button>
-                    <button
-                      className="bg-gray-500 text-white px-2 py-1 rounded"
-                      onClick={() => setEditingId(null)}
-                    >
+                    <button className="bg-gray-500 text-white px-2 py-1 rounded" onClick={() => setEditingId(null)}>
                       Cancel
                     </button>
                   </div>

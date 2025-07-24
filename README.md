@@ -87,3 +87,9 @@ mongodb+srv://syedsaqlain46:<db_password>@cluster0.fhldezx.mongodb.net/?retryWri
 npm install mongodb
 New-Item -Path .env.local -ItemType File //for create env in root
 npm install mongoose
+MONGODB_URI=mongodb+srv://syedsaqlain46:kahani3777@cluster0.fhldezx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+login logut
+authentication
+bycrypt
+jwt
